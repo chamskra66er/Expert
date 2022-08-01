@@ -16,7 +16,9 @@ namespace Expert
         static SqlConnection connection;
         static async Task Main(string[] args)
         {
-            await ExecuteConnectAndCatch();
+            var tsRes = await ExecuteConnectAndCatch();
+            if (!tsRes)
+                return;
 
             var command = ReadFile();
             if (string.IsNullOrEmpty(command))
@@ -87,19 +89,21 @@ namespace Expert
             WriteFile(stringBuilder);
             Console.WriteLine("запись в output.csv завершена");
         }
-        static async Task ExecuteConnectAndCatch()
+        static async Task<bool> ExecuteConnectAndCatch()
         {
-            Task connect = Connect();
+            Task<bool> connect = Connect();
             try
             {
-                await connect;
+                var res = await connect;
+                return res;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("[Что-то пошло не так] " + "[Error] - " + ex.Message + " | [Stacktrace] - " + ex.StackTrace);
+                return false;
             }
         }
-        static async Task Connect()
+        static async Task<bool> Connect()
         {
             string connectString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             string fixedConnectionString = connectString.Replace("Expert.mdf", AppDomain.CurrentDomain.BaseDirectory + @"Expert.mdf");
@@ -108,8 +112,9 @@ namespace Expert
             if (connection.State == ConnectionState.Closed)
             {
                 Console.WriteLine("Статус соединения бд: " + connection.State);
-                return;
+                return false;
             }
+            return true;
         }
     }
 }
