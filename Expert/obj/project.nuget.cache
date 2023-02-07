@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "onLzIJ5DFgPtmdT6uqXEVWD9aAIGvtpc8WyQfK/CB/DCjJE4TijkMd8O1W585ZyLEyL2/sz5oq5wJugRYIgwbw==",
+  "dgSpecHash": "cPgpNJheA3pfeK26/TBMUM0r49pqof/NTEN3Fdmt2Ptl6yqyazQ+46XfwCDwS/8Ome63xo3s7pRaHTDv1X9bdw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chamskra66er\\VS\\Expert\\Expert\\Expert.csproj",
+  "projectFilePath": "C:\\Users\\chamskra66er\\Source\\Repos\\Expert\\Expert\\Expert.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chamskra66er\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\chamskra66er\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
